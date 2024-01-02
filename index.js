@@ -1,3 +1,6 @@
+console.log("Financial Analysis");
+console.log("------------------");
+
 var finances = [
   ['Jan-2010', 867884],
   ['Feb-2010', 984655],
@@ -86,3 +89,14 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+// display the total number of months.
+var totalMonths = finances.length;
+console.log("Total Months: " + totalMonths);
+
+// display the net total amount of Profit/Losses over the entire period.
+var total = 0;
+for (var i = 0; i < finances.length; i++) {
+  total += finances[i][1];
+}
+console.log("Total: $" + total);
