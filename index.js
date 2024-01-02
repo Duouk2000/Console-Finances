@@ -100,3 +100,17 @@ for (var i = 0; i < finances.length; i++) {
   total += finances[i][1];
 }
 console.log("Total: $" + total);
+
+// check the changes in profit/loss month to month and display the average.
+var totalChange = 0;
+
+for (var i = 1; i < finances.length; i++) {
+  var currentProfit = finances[i][1];
+  var previousProfit = finances[i - 1][1];
+  var change = currentProfit - previousProfit;
+  totalChange += change;
+}
+var averageChange = totalChange / (finances.length - 1);
+// used toFixed to round down the result which is displayed as a string.
+var roundedNumber = averageChange.toFixed(2);
+console.log("Average Change: " + roundedNumber);
