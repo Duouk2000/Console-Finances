@@ -114,3 +114,28 @@ var averageChange = totalChange / (finances.length - 1);
 // used toFixed to round down the result which is displayed as a string.
 var roundedNumber = averageChange.toFixed(2);
 console.log("Average Change: " + roundedNumber);
+
+// display the greatest increase and decrease in Profit/Losses 
+// over the entire period.
+var greatestIncrease = 0;
+var greatestIncreaseDate = "";
+var greatestDecrease = 0;
+var greatestDecreaseDate = "";
+
+for (var i = 1; i < finances.length; i++) {
+  var currentProfit = finances[i][1];
+  var previousProfit = finances[i - 1][1];
+  var change = currentProfit - previousProfit;
+// confirms which data in the array has the largest increase in profit/loss.
+  if (change > greatestIncrease) {
+    greatestIncrease = change;
+    greatestIncreaseDate = finances[i][0];
+  }
+// confirms which data in the array has the largest decrease in profit/loss.
+  if (change < greatestDecrease) {
+    greatestDecrease = change;
+    greatestDecreaseDate = finances[i][0];
+  }
+}
+console.log("Greatest Increase in Profits/Losses:",greatestIncreaseDate + " ($" + greatestIncrease + ")");
+console.log("Greatest Decrease in Profits/Losses:",greatestDecreaseDate + " ($" + greatestDecrease + ")");
